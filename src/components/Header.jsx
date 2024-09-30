@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Container, IconButton, Menu, MenuItem, Avatar } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate logged-in state
+  const navigate = useNavigate();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,8 +54,8 @@ const Header = () => {
             </div>
           ) : (
             <div>
-              <Button color="inherit">Login</Button>
-              <Button color="inherit">Signup</Button>
+              <Button color="inherit" onClick={() => navigate('/login')}>Login</Button>
+              <Button color="inherit" onClick={() => navigate('/signup')}>Signup</Button>
             </div>
           )}
         </Toolbar>
